@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <unordered_map> // Thu vi?n Dictionary (Hash Map)
+#include <unordered_map> 
 
 using namespace std;
 
@@ -11,7 +11,6 @@ struct Student {
     string gmail;
 };
 
-// S? d?ng unordered_map: Key là MSSV (int), Value là thông tin Student
 unordered_map<int, Student> studentList;
 
 void addStudent() {
@@ -20,7 +19,6 @@ void addStudent() {
     cin >> mssv;
     cin.ignore();
 
-    // Dictionary giúp ki?m tra t?n t?i c?c nhanh v?i phuong th?c .count()
     if (studentList.count(mssv)) {
         cout << "MSSV da ton tai!\n";
         return;
@@ -33,7 +31,6 @@ void addStudent() {
     cin.ignore();
     cout << "Nhap Gmail: "; getline(cin, sv.gmail);
 
-    // Thêm ho?c c?p nh?t trong Dictionary ch? b?ng toán t? []
     studentList[mssv] = sv;
     cout << "Them thanh cong!\n";
 }
@@ -42,7 +39,7 @@ void removeStudent() {
     int mssv;
     cout << "Nhap MSSV can xoa: "; cin >> mssv;
 
-    // .erase() tr? v? s? lu?ng ph?n t? dã xóa (0 ho?c 1)
+    
     if (studentList.erase(mssv)) {
         cout << "Xoa thanh cong!\n";
     } else {
@@ -54,14 +51,14 @@ void findStudent() {
     int mssv;
     cout << "Nhap MSSV can tim: "; cin >> mssv;
 
-    // Tìm ki?m ph?n t? b?ng .find()
+   
     auto it = studentList.find(mssv);
     if (it == studentList.end()) {
         cout << "Khong ton tai MSSV\n";
         return;
     }
 
-    // it->first là Key (MSSV), it->second là Value (Student)
+    
     Student& sv = it->second;
     cout << "\n--- THONG TIN SINH VIEN ---\n";
     cout << "MSSV: " << it->first << "\n";
@@ -137,3 +134,4 @@ int main() {
         }
     }
 }
+
